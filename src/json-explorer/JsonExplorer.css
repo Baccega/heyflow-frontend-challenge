@@ -1,0 +1,10 @@
+.json-viewer {
+    font-family: monospace;
+    background-color: #1a1a1a;
+    border-radius: 8px;
+    padding: 1em;
+    max-height: calc(100dvh - 200px);
+    max-width: calc(100dvw - 4rem);
+    width: 100%;
+    overflow: auto;
+}
