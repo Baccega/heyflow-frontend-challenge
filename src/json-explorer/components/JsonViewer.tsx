@@ -8,7 +8,7 @@ function getNestedValue(
 ): unknown | undefined {
   return (
     path
-      // This will convert all array indexes to standard object dot properties 
+      // This will convert all array indexes to standard object dot properties
       .replace(/\[(\w+)\]/g, ".$1")
       .split(".")
       .reduce<unknown>(
@@ -37,7 +37,8 @@ function JsonViewer(props: JsonViewerProps) {
   return (
     <>
       <div className="selected-key">
-        <h3>Key:</h3> <span>{selectedKey}</span>
+        <h3>Key:</h3>{" "}
+        <span>{selectedKey ? `data.${selectedKey}` : "No key selected"}</span>
       </div>
       <div className="selected-value">
         <h3>Value:</h3> <span>{JSON.stringify(selectedValue)}</span>

@@ -4,7 +4,7 @@
   border-radius: 8px;
   padding: 1em;
   max-height: calc(100dvh - 250px);
-  max-width: calc(100dvw - 4rem);
+  min-width: calc(100dvw - 4rem);
   width: 100%;
   overflow: auto;
   text-align: left;
@@ -21,6 +21,13 @@
   gap: 1rem;
   align-items: center;
   justify-content: center;
+}
+
+.selected-value span {
+  max-width: calc(100dvw - 9rem);
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 .json-value {
