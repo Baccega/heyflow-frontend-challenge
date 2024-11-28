@@ -41,7 +41,7 @@ export default function JsonValue({
             <div className="json-value-right json-value-right--array">
               {value.map((item, index) => (
                 <div className="json-value" key={index}>
-                  {renderValue(item, key)}
+                  {renderValue(item, `${prefix}${key}[${index}]`)}
                 </div>
               ))}
             </div>

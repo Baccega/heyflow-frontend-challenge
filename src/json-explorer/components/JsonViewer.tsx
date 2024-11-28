@@ -6,12 +6,16 @@ function getNestedValue(
   obj: Record<string, unknown>,
   path: string
 ): unknown | undefined {
-  return path
-    .split(".")
-    .reduce<unknown>(
-      (acc, key) => (acc ? (acc as Record<string, unknown>)[key] : undefined),
-      obj
-    );
+  return (
+    path
+      // This will convert all array indexes to standard object dot properties 
+      .replace(/\[(\w+)\]/g, ".$1")
+      .split(".")
+      .reduce<unknown>(
+        (acc, key) => (acc ? (acc as Record<string, unknown>)[key] : undefined),
+        obj
+      )
+  );
 }
 
 type JsonViewerProps = {
