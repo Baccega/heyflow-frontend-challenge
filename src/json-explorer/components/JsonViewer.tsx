@@ -37,7 +37,9 @@ function JsonViewer(props: JsonViewerProps) {
   );
 
   const selectedValue =
-    selectedKey && getNestedValue(props.data, selectedKey ?? "");
+    selectedKey !== ""
+      ? getNestedValue(props.data, selectedKey ?? "")
+      : undefined;
 
   return (
     <>
@@ -48,7 +50,9 @@ function JsonViewer(props: JsonViewerProps) {
       <div className="selected-value">
         <h3>Value:</h3>{" "}
         <span>
-          {selectedValue ? JSON.stringify(selectedValue) : "undefined"}
+          {selectedValue === undefined
+            ? "undefined"
+            : JSON.stringify(selectedValue)}
         </span>
       </div>
       <div className="json-viewer">
