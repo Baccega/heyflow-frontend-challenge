@@ -1,6 +1,19 @@
 import { useCallback, useState } from "react";
 import JsonValue from "./JsonValue";
 
+// No need to put this in a separate file for this demo
+function getNestedValue(
+  obj: Record<string, unknown>,
+  path: string
+): unknown | undefined {
+  return path
+    .split(".")
+    .reduce<unknown>(
+      (acc, key) => (acc ? (acc as Record<string, unknown>)[key] : undefined),
+      obj
+    );
+}
+
 type JsonViewerProps = {
   data: Record<string, unknown>;
 };
@@ -12,7 +25,8 @@ function JsonViewer(props: JsonViewerProps) {
     setSelectedKey(key);
   }, []);
 
-  const selectedValue = props.data[selectedKey ?? ""];
+  const selectedValue =
+    selectedKey && getNestedValue(props.data, selectedKey ?? "");
 
   console.log(selectedKey);
 

@@ -1,10 +1,15 @@
 type JsonValueProps = {
   data: Record<string, unknown>;
   onKeyClick: (key: string) => void;
+  prefix?: string;
 };
 
-export default function JsonValue({ data, onKeyClick }: JsonValueProps) {
-  function renderValue(value: unknown) {
+export default function JsonValue({
+  data,
+  prefix = "",
+  onKeyClick,
+}: JsonValueProps) {
+  function renderValue(value: unknown, key: string) {
     switch (true) {
       case value === null:
         return (
@@ -21,6 +26,7 @@ export default function JsonValue({ data, onKeyClick }: JsonValueProps) {
             <div className="json-value-right json-value-right--object">
               <JsonValue
                 onKeyClick={onKeyClick}
+                prefix={prefix + key + "."}
                 data={value as Record<string, unknown>}
               />
             </div>
@@ -35,7 +41,7 @@ export default function JsonValue({ data, onKeyClick }: JsonValueProps) {
             <div className="json-value-right json-value-right--array">
               {value.map((item, index) => (
                 <div className="json-value" key={index}>
-                  {renderValue(item)}
+                  {renderValue(item, key)}
                 </div>
               ))}
             </div>
@@ -86,7 +92,7 @@ export default function JsonValue({ data, onKeyClick }: JsonValueProps) {
       {data &&
         Object.entries(data).map(([key, value], index) => {
           const handleKeyClick = () => {
-            onKeyClick(key);
+            onKeyClick(prefix + key);
           };
 
           return (
@@ -95,7 +101,7 @@ export default function JsonValue({ data, onKeyClick }: JsonValueProps) {
                 {key}
               </span>
               <span className="json-separator">:</span>
-              {renderValue(value)}
+              {renderValue(value, key)}
             </div>
           );
         })}
