@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { ChangeEvent, useCallback, useState } from "react";
 import JsonValue from "./JsonValue";
 
 // No need to put this in a separate file for this demo
@@ -29,19 +29,27 @@ function JsonViewer(props: JsonViewerProps) {
     setSelectedKey(key);
   }, []);
 
+  const handleInputChange = useCallback(
+    (event: ChangeEvent<HTMLInputElement>) => {
+      setSelectedKey(event.target.value);
+    },
+    [setSelectedKey]
+  );
+
   const selectedValue =
     selectedKey && getNestedValue(props.data, selectedKey ?? "");
-
-  console.log(selectedKey);
 
   return (
     <>
       <div className="selected-key">
         <h3>Key:</h3>{" "}
-        <span>{selectedKey ? `data.${selectedKey}` : "No key selected"}</span>
+        <input value={selectedKey ?? ""} onChange={handleInputChange} />
       </div>
       <div className="selected-value">
-        <h3>Value:</h3> <span>{JSON.stringify(selectedValue)}</span>
+        <h3>Value:</h3>{" "}
+        <span>
+          {selectedValue ? JSON.stringify(selectedValue) : "undefined"}
+        </span>
       </div>
       <div className="json-viewer">
         <JsonValue data={props.data} onKeyClick={handleKeyClick} />
