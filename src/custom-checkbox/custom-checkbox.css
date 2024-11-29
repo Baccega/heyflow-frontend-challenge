@@ -5,7 +5,7 @@
   gap: 1rem;
 }
 
-#custom-checkbox {
+.custom-checkbox {
   font: inherit;
   color: currentColor;
   overflow: hidden;
@@ -19,7 +19,7 @@
   cursor: pointer;
 }
 
-#custom-checkbox::before {
+.custom-checkbox::before {
   content: url("../assets/checkmark.svg");
   width: 1.15rem;
   height: 1.15rem;
@@ -28,12 +28,12 @@
   transition: 50ms transform ease-in-out;
 }
 
-#custom-checkbox:checked::before {
+.custom-checkbox:checked::before {
   transform: scale(1);
 }
 
 /* Hide the native checkbox */
-#custom-checkbox {
+.custom-checkbox {
   -webkit-appearance: none;
   appearance: none;
   background-color: var(--background-color);
