@@ -16,6 +16,10 @@
   gap: 1rem;
 }
 
+header {
+  max-width: calc(100dvw - 4rem);
+}
+
 h2 {
   padding-top: 1rem;
 }
@@ -26,6 +30,7 @@ main {
   gap: 1rem;
   height: 100%;
   flex-grow: 1;
+  max-width: calc(100dvw - 4rem);
   min-height: 100%;
 }
 
@@ -47,10 +52,18 @@ nav a {
   will-change: transform;
 }
 .back {
-  width: 3.2em;
-  height: 3.2em;
+  width: 2rem;
+  height: 2rem;
   animation: logo-shrink 0.2s forwards;
   will-change: transform;
+}
+
+
+@media only screen and (min-width: 600px) {
+  .back {
+    width: 3.2rem;
+    height: 3.2rem;
+  }
 }
 
 @keyframes logo-shrink {
