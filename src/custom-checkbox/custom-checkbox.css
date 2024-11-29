@@ -44,3 +44,12 @@ label {
   background-color: var(--background-color);
   margin: 0;
 }
+
+/* Show outline when native checkbox is focussed */
+main:has(#native-checkbox:focus-visible) #custom-checkbox-entangled {
+  outline-color: blue;
+  outline-color: -webkit-focus-ring-color;
+  outline-style: solid;
+  outline-width: 2px;
+  outline-offset: 2px;
+}
