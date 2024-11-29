@@ -10,7 +10,11 @@ customCheckbox.addEventListener("change", function () {
 });
 
 nativeCheckbox.addEventListener("focusin", function () {
-  customCheckbox.style.outline = "2px solid -webkit-focus-ring-color";
+  // Fallback for Firefox
+  customCheckbox.style.outlineColor = "blue";
+  customCheckbox.style.outlineColor = "-webkit-focus-ring-color";
+  customCheckbox.style.outlineStyle = "solid";
+  customCheckbox.style.outlineWidth = "2px";
   customCheckbox.style.outlineOffset = "2px";
 });
 nativeCheckbox.addEventListener("focusout", function () {

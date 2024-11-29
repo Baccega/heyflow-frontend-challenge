@@ -5,6 +5,10 @@
   gap: 1rem;
 }
 
+label {
+  cursor: pointer;
+}
+
 .custom-checkbox {
   font: inherit;
   color: currentColor;
@@ -15,6 +19,7 @@
   border-radius: 0.15rem;
   display: grid;
   place-content: center;
+  /* On Chrome this looks good, on Firefox and Safari 2px would be better */
   outline-offset: 4px;
   cursor: pointer;
 }
