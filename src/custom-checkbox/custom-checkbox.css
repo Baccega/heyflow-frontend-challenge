@@ -1,0 +1,41 @@
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+#custom-checkbox {
+  font: inherit;
+  color: currentColor;
+  overflow: hidden;
+  width: 1.15rem;
+  height: 1.15rem;
+  border: 1px solid currentColor;
+  border-radius: 0.15rem;
+  display: grid;
+  place-content: center;
+  outline-offset: 4px;
+  cursor: pointer;
+}
+
+#custom-checkbox::before {
+  content: url("../assets/checkmark.svg");
+  width: 1.15rem;
+  height: 1.15rem;
+  border-radius: 0.15rem;
+  transform: scale(0);
+  transition: 50ms transform ease-in-out;
+}
+
+#custom-checkbox:checked::before {
+  transform: scale(1);
+}
+
+/* Hide the native checkbox */
+#custom-checkbox {
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: var(--background-color);
+  margin: 0;
+}

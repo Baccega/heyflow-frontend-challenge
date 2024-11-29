@@ -7,6 +7,7 @@
     <title>Custom Checkbox</title>
     <link rel="stylesheet" href="../index.css" />
     <link rel="stylesheet" href="../App.css" />
+    <link rel="stylesheet" href="./custom-checkbox.css" />
   </head>
   <body>
     <div id="root">
@@ -18,7 +19,20 @@
         </nav>
         <h1>Custom Checkbox</h1>
       </header>
-      <main>ergwergwergwergwerg</main>
+      <main>
+        <div class="checkbox-container">
+          <input
+            type="checkbox"
+            id="native-checkbox"
+            name="native-checkbox"
+          />
+          <label for="native-checkbox">Native Checkbox</label>
+        </div>
+        <div class="checkbox-container">
+          <input type="checkbox" id="custom-checkbox" name="custom-checkbox" />
+          <label for="custom-checkbox">Custom Checkbox</label>
+        </div>
+      </main>
     </div>
 
     <!-- <script type="module" src="/src/custom-checkbox/custom-checkbox.tsx"></script> -->
