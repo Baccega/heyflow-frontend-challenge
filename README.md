@@ -27,6 +27,8 @@ Open [http://localhost:5173](http://localhost:5173) with your browser to see the
 
 I've created this project with vite using the `create-vite` command with pnpm as the package manager, maily because I beleive that it's one of the best ways to start a typescript react project without a framework (like Next.js).  
 
+The JSON Explorer challenge also includes the bonus points to use Typescript (even if not by that much because the JSON data structure is not known in advance) and the input field displays the correct value when given a path to the property.
+
 The project is structured as follows:
 
 - `src/App.tsx`: The landing page of the application. It's just there to link to the other pages.
